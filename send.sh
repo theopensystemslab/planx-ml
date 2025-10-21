@@ -2,7 +2,7 @@
 # run like `./send.sh host private_key` on local, to prepare remote to continue setup
 
 if [[ -z "${1-}" ]]; then
-    REMOTE="pod"
+    REMOTE="g4"
 else
     REMOTE="$1"
 fi
@@ -17,5 +17,5 @@ fi
 scp ~/.ssh/$PRIVATE_KEY "$REMOTE:~/.ssh/id_ed25519_gh"
 scp ssh.sh "$REMOTE:ssh.sh"
 
-scp .env "$REMOTE:.env" || true
-scp .tmux.conf "$REMOTE:.tmux.conf" || true
+scp .env "$REMOTE:planx-ml/.env" || true
+scp .tmux.conf "$REMOTE:planx-ml/.tmux.conf" || true

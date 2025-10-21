@@ -9,14 +9,3 @@ if [[ -n "$SSH_CONNECTION" && -d /workspace/ ]]; then
   echo "🐧 Running on remote runpod with storage attached - moving to /workspace"
   cd /workspace
 fi
-
-# ensure we have git, clone repo, cd in etc.
-apt-get update && apt-get install -y git
-git clone git@github.com:freemvmt/torchpod.git || true
-cd torchpod
-git pull
-git status
-
-# chain into setup.sh
-echo "Chaining into setup.sh..."
-source setup.sh
