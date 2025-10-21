@@ -1,34 +1,25 @@
-# Torch on remote 🔥
+# PlanX ML
 
-A base template for a vanilla Pytorch project on Python 3.12, setup with uv, with scripts for racking up remote GPUs, e.g. on [runpod.io](https://www.runpod.io/).
+A Pytorch project on Python 3.12, setup with uv, to be run on an AWS EC2 instance (g4dn).
 
 
-## Script kids
-
-For quick setup of a GPU, we have some handy scripts to streamline your workflow.
-
-Before proceeding, change the `git clone ...` command (and following `cd ...`) in `ssh.sh` to reflect your repo name and location.
-
-Then, when you have a new GPU server spun up and ready to roll, do the following:
+## Working on the remote
 
 1. Update your `~/.ssh/config` file with the ip/port of the new server. It should look something like this:
 
 ```
-Host pod
+Host g4
 	HostName 80.15.7.37
-	User root
-	Port 43209
-	IdentityFile ~/.ssh/id_ed25519_pod
+	User ubuntu
+	IdentityFile ~/.ssh/id_ed25519_osl_devops
 ```
 
-2. Run `./send.sh` from root. If you named the host something other than `pod` in the config, or your GitHub private key is called something other than `id_ed25519_gh`, then include these as args:
+Note that you may have named the private key file differently, and that you need to replace `HostName` with the current public IPv4 address of the g4 instance. See `planx-new/infrastructure/ml/README.md` for more on that.
 
-```sh
-./send.sh [host] [private_key]
-```
+2. Go to the `Remote Explorer` tab in vscode and connect to `g4`.
 
-3. SSH into the remote (e.g. by running `ssh pod` assuming given config)
+3. Once conncted, make sure the `Jupyter` extension is installed in the vscode server on the remote, so that you can work with the notebooks.
 
-4. Run `source ssh.sh` on entry to the remote (`ssh.sh` should have been transferred to the home dir of the `root` user). You will be prompted for the password to your GitHub private key. This will clone the repo (into `/workspace/`), cd into it, and further run `source setup.sh` to update packages, sync uv, activate your virtual environment, etc. You can then run `python ...` as required.
+4. From either the terminal inside vscode, or your own separate ssh session, navigate to the `planx-ml` repo, ensure you have the latest version of `main`, and run `uv sync`.
 
-NB. If the remote is some cutting edge GPU (e.g. RTX 5090), it will require the nightly version of torch. To let the script handle this, `export BEAST_MODE=1` on the remote, before step 3.
+5. You are go! 🔥

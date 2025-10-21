@@ -1,15 +1,27 @@
 [project]
-name = "torchpod"
+name = "planx-ml"
 version = "0.1.0"
-description = "A machine learning project in torch"
+description = "PlanX machine learning experiments"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
   "accelerate>=1.8.1",
-  "datasets>=4.0.0",
+  "bitsandbytes>=0.48.1",
+  "cut-cross-entropy>=25.1.1",
+  "datasets>=3.4.1,<4.0.0",
   "evaluate>=0.4.5",
+  "hf-transfer>=0.1.9",
+  "huggingface_hub>=0.34.0",
   "matplotlib>=3.10.3",
   "notebook>=7.4.4",
-  "torch>=2.7.1",
-  "transformers>=4.53.2",
+  "peft>=0.17.1",
+  "protobuf>=6.33.0",
+  "sentencepiece>=0.2.1",
+  "torch>=2.8",
+  "transformers>=4.56.1",
+  "triton>=3.4.0",
+  "trl>=0.23.0",
+  "unsloth>=2025.10.7",
+  "unsloth-zoo>=2025.10.8",
+  "xformers==0.0.32.post2",
 ]
