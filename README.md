@@ -20,6 +20,8 @@ Note that you may have named the private key file differently, and that you need
 
 3. Once conncted, make sure the `Jupyter` extension is installed in the vscode server on the remote, so that you can work with the notebooks.
 
-4. From either the terminal inside vscode, or your own separate ssh session, navigate to the `planx-ml` repo, ensure you have the latest version of `main`, and run `uv sync`.
+4. If you're not already authenticated with git, run `git auth login` and provide the token.
 
-5. You are go! 🔥
+5. From either the terminal inside vscode, or your own separate ssh session, navigate to the `planx-ml` repo, ensure you have the latest version of `main`, and run `uv sync`.
+
+6. You are go! 🔥
