@@ -1,6 +1,6 @@
 # PlanX ML
 
-A Pytorch project on Python 3.12, setup with uv, to be run on an AWS EC2 instance (g4dn).
+A Pytorch project on Python 3.12, setup with uv, to be run on an AWS EC2 instance with GPU.
 
 
 ## Working on the remote
@@ -8,15 +8,15 @@ A Pytorch project on Python 3.12, setup with uv, to be run on an AWS EC2 instanc
 1. Update your `~/.ssh/config` file with the ip/port of the new server. It should look something like this:
 
 ```
-Host g4
+Host g6
 	HostName 80.15.7.37
 	User ubuntu
 	IdentityFile ~/.ssh/id_ed25519_osl_devops
 ```
 
-Note that you may have named the private key file differently, and that you need to replace `HostName` with the current public IPv4 address of the g4 instance. See `planx-new/infrastructure/ml/README.md` for more on that.
+Note that you may have named the private key file differently, and that you need to replace `HostName` with the current public IPv4 address of the g6 instance. See `planx-new/infrastructure/ml/README.md` for more on that.
 
-2. Go to the `Remote Explorer` tab in vscode and connect to `g4`.
+2. Go to the `Remote Explorer` tab in vscode and connect to `g6`.
 
 3. Once conncted, make sure the `Jupyter` extension is installed in the vscode server on the remote, so that you can work with the notebooks.
 
