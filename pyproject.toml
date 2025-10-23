@@ -3,12 +3,13 @@ name = "planx-ml"
 version = "0.1.0"
 description = "PlanX machine learning experiments"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.12,<3.13"
 dependencies = [
   "accelerate>=1.8.1",
   "bitsandbytes>=0.48.1",
   "cut-cross-entropy>=25.1.1",
   "datasets>=3.4.1,<4.0.0",
+  "dotenv>=0.9.9",
   "evaluate>=0.4.5",
   "hf-transfer>=0.1.9",
   "huggingface_hub>=0.34.0",
@@ -18,10 +19,13 @@ dependencies = [
   "protobuf>=6.33.0",
   "sentencepiece>=0.2.1",
   "torch>=2.8",
+  "torchao>=0.13,<0.14",
   "transformers>=4.56.1",
   "triton>=3.4.0",
   "trl>=0.23.0",
   "unsloth>=2025.10.7",
   "unsloth-zoo>=2025.10.8",
+  "wandb>=0.22.2",
   "xformers==0.0.32.post2",
+  "ipykernel==6.30.1",
 ]

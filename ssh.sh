@@ -4,8 +4,3 @@
 # start ssh agent, add key, go to /workspace
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519_gh
-
-if [[ -n "$SSH_CONNECTION" && -d /workspace/ ]]; then
-  echo "🐧 Running on remote runpod with storage attached - moving to /workspace"
-  cd /workspace
-fi

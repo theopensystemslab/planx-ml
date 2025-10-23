@@ -214,3 +214,6 @@ samples/
 
 # unsloth
 unsloth_compiled_cache/
+
+# wandb
+wandb/
