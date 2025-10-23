@@ -119,8 +119,8 @@ trainer = SFTTrainer(
         per_device_train_batch_size=8,
         gradient_accumulation_steps=4,  # Use GA to mimic batch size!
         warmup_steps=5,
-        # num_train_epochs=run.config.epochs,  # Set this for 1 full training run.
-        max_steps=10,
+        num_train_epochs=run.config.epochs,  # Set this for 1 full training run.
+        # max_steps=10,
         learning_rate=2e-4,  # Reduce to 2e-5 for long training runs
         logging_steps=1,
         optim="adamw_8bit",
@@ -160,6 +160,9 @@ print(f"Peak reserved memory for training = {used_memory_for_lora} GB.")
 print(f"Peak reserved memory % of max memory = {used_percentage} %.")
 print(f"Peak reserved memory for training % of max memory = {lora_percentage} %.")
 
-trainer.save_model()
+# Save the model and tokenizer using Unsloth's proper methods
+# This saves LoRA adapters only (recommended for fine-tuned models)
+model.save_pretrained("data/qwen3-4b-lora")
+tokenizer.save_pretrained("data/qwen3-4b-lora")
 
 run.finish()
